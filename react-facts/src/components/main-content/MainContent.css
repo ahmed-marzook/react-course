@@ -1,0 +1,47 @@
+.main-content {
+  margin: 0px;
+  font-family: "Inter", sans-serif;
+  color: white;
+  min-height: 100%;
+  padding: 60px 30px;
+  position: relative;
+}
+
+.heading {
+  margin: 0px;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.facts-list {
+  padding-left: 1.5rem; /* Remove default padding */
+  z-index: 1;
+}
+
+.facts-list .fact-item {
+  padding-block: 1rem;
+  list-style: none;
+  padding-left: 1.5em;
+  position: relative;
+}
+
+.facts-list .fact-item::before {
+  content: "•"; /* Add custom bullet */
+  position: absolute;
+  left: 0;
+  font-size: x-large;
+  line-height: 1;
+  top: 50%;
+  color: #61dafb;
+  transform: translateY(-50%); /* Center bullet vertically */
+}
+
+.main-logo {
+  position: absolute;
+  right: -150px;
+  bottom: 60px;
+  width: 300px;
+  opacity: 5%;
+  filter: brightness(0) invert(1);
+  z-index: -1;
+}

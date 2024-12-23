@@ -1,0 +1,50 @@
+.entry-group {
+  margin: 40px;
+}
+
+.entry {
+  display: flex;
+  font-family: "Inter", sans-serif;
+}
+
+.entry-image-container {
+  width: 125px;
+  height: 168px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.entry-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.entry-content {
+  margin-left: 10px;
+}
+
+.entry-content > .entry-location {
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+}
+
+.entry-marker {
+  width: 10px;
+  margin-right: 5px;
+}
+
+.entry-content > span {
+  font-weight: bold;
+}
+
+.entry-location > a {
+  color: gray;
+  margin-left: 10px;
+}
+
+.entry-header {
+  margin: 10px 0px;
+}
