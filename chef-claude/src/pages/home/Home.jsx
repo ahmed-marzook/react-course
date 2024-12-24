@@ -4,9 +4,9 @@ import { useState } from "react";
 
 function Home(props) {
   const [formData, setFormData] = useState({
-    ingrediant: "",
+    ingredient: "",
   });
-  const [ingrediantList, setIngrediantList] = useState([]);
+  const [ingredientList, setingredientList] = useState([]);
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
@@ -19,37 +19,37 @@ function Home(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newIngrediant = formData.ingrediant.trim();
-    if (newIngrediant && !ingrediantList.includes(newIngrediant)) {
-      setIngrediantList([...ingrediantList, formData.ingrediant.trim()]);
+    const newingredient = formData.ingredient.trim();
+    if (newingredient && !ingredientList.includes(newingredient)) {
+      setingredientList([...ingredientList, formData.ingredient.trim()]);
     }
     setFormData({
-      ingrediant: "",
+      ingredient: "",
     });
   };
 
   return (
     <main>
-      <form onSubmit={handleSubmit} className="add-ingrediant-form">
+      <form onSubmit={handleSubmit} className="add-ingredient-form">
         <input
           type="text"
-          name="ingrediant"
+          name="ingredient"
           placeholder="e.g. oregano"
-          aria-label="Add Ingrediant"
-          className="add-ingrediant-form-input"
+          aria-label="Add ingredient"
+          className="add-ingredient-form-input"
           onChange={handleFormChange}
-          value={formData.ingrediant}
+          value={formData.ingredient}
         />
-        <button type="submit" className="add-ingrediant-form-submit-button">
-          + Add Ingrediant
+        <button type="submit" className="add-ingredient-form-submit-button">
+          + Add ingredient
         </button>
       </form>
-      <div className="ingrediant-list">
+      <div className="ingredient-list">
         <div>
           {" "}
           <h2>Ingredients on hand:</h2>
           <ul>
-            {ingrediantList.map((value) => (
+            {ingredientList.map((value) => (
               <li key={value}>{value}</li>
             ))}
           </ul>

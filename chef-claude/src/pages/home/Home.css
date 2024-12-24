@@ -1,4 +1,4 @@
-.add-ingrediant-form {
+.add-ingredient-form {
   height: 180px;
   display: flex;
   justify-content: center;
@@ -6,7 +6,7 @@
   gap: 10px;
 }
 
-.add-ingrediant-form > input {
+.add-ingredient-form > input {
   width: 399px;
   height: 38px;
   padding-left: 13px;
@@ -16,7 +16,7 @@
   font-family: "Inter", serif;
 }
 
-.add-ingrediant-form > button {
+.add-ingredient-form > button {
   width: 183px;
   height: 38px;
   padding: 0px 17px;
@@ -29,7 +29,7 @@
   cursor: pointer;
 }
 
-.ingrediant-list {
+.ingredient-list {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -38,11 +38,11 @@
   font-family: "Inter", serif;
 }
 
-.ingrediant-list > div {
+.ingredient-list > div {
   width: 100%;
 }
 
-.ingrediant-list h2 {
+.ingredient-list h2 {
   text-align: left;
   margin-left: 0;
   font-weight: 600;
@@ -51,7 +51,7 @@
   color: #141413;
 }
 
-.ingrediant-list ul {
+.ingredient-list ul {
   text-align: left;
   padding-left: 20px;
   margin: 0;
