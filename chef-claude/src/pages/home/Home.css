@@ -38,7 +38,6 @@
   font-family: "Inter", serif;
 }
 
-/* This ensures the inner div takes full width */
 .ingrediant-list > div {
   width: 100%;
 }
@@ -46,11 +45,15 @@
 .ingrediant-list h2 {
   text-align: left;
   margin-left: 0;
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: 0px;
+  color: #141413;
 }
 
 .ingrediant-list ul {
   text-align: left;
-  padding-left: 20px; /* Adjusts the bullet point indent */
+  padding-left: 20px;
   margin: 0;
   color: #475467;
   line-height: 28px;

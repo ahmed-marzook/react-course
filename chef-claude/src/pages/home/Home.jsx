@@ -19,10 +19,10 @@ function Home(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.ingrediant.trim()) {
+    const newIngrediant = formData.ingrediant.trim();
+    if (newIngrediant && !ingrediantList.includes(newIngrediant)) {
       setIngrediantList([...ingrediantList, formData.ingrediant.trim()]);
     }
-    console.log(ingrediantList);
     setFormData({
       ingrediant: "",
     });
@@ -49,8 +49,8 @@ function Home(props) {
           {" "}
           <h2>Ingredients on hand:</h2>
           <ul>
-            {ingrediantList.map((value, index) => (
-              <li key={index}>{value}</li>
+            {ingrediantList.map((value) => (
+              <li key={value}>{value}</li>
             ))}
           </ul>
         </div>
