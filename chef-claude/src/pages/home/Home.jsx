@@ -3,29 +3,14 @@ import "./Home.css";
 import { useState } from "react";
 
 function Home(props) {
-  const [formData, setFormData] = useState({
-    ingredient: "",
-  });
   const [ingredientList, setingredientList] = useState([]);
 
-  const handleFormChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newingredient = formData.ingredient.trim();
+  const addNewIngrediant = (formData) => {
+    console.log(formData);
+    const newingredient = formData.get("ingredient").trim();
     if (newingredient && !ingredientList.includes(newingredient)) {
-      setingredientList([...ingredientList, formData.ingredient.trim()]);
+      setingredientList([...ingredientList, newingredient]);
     }
-    setFormData({
-      ingredient: "",
-    });
   };
 
   const handleDelete = (e) => {
@@ -38,15 +23,13 @@ function Home(props) {
 
   return (
     <main>
-      <form onSubmit={handleSubmit} className="add-ingredient-form">
+      <form action={addNewIngrediant} className="add-ingredient-form">
         <input
           type="text"
           name="ingredient"
           placeholder="e.g. oregano"
           aria-label="Add ingredient"
           className="add-ingredient-form-input"
-          onChange={handleFormChange}
-          value={formData.ingredient}
         />
         <button type="submit" className="add-ingredient-form-submit-button">
           + Add ingredient
