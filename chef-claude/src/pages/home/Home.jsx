@@ -28,6 +28,14 @@ function Home(props) {
     });
   };
 
+  const handleDelete = (e) => {
+    console.log(e.target.id);
+    let newList = ingredientList.filter(function (letter) {
+      return letter !== e.target.id;
+    });
+    setingredientList(newList);
+  };
+
   return (
     <main>
       <form onSubmit={handleSubmit} className="add-ingredient-form">
@@ -46,11 +54,19 @@ function Home(props) {
       </form>
       <div className="ingredient-list">
         <div>
-          {" "}
           <h2>Ingredients on hand:</h2>
           <ul>
             {ingredientList.map((value) => (
-              <li key={value}>{value}</li>
+              <li key={value}>
+                {value}
+                <button
+                  className="delete-button button-24"
+                  onClick={handleDelete}
+                  id={value}
+                >
+                  DELETE
+                </button>
+              </li>
             ))}
           </ul>
         </div>
