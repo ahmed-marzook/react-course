@@ -61,16 +61,18 @@
 }
 
 .ingredient-list ul > li {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  padding-right: 80px;
   margin-bottom: 5px;
 }
 
-.delete-button {
-}
-
 /* CSS */
-.button-24 {
+.delete-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 5px;
   background: #ff4742;
   border: 1px solid #ff4742;
   border-radius: 6px;
@@ -95,13 +97,13 @@
   vertical-align: middle;
 }
 
-.button-24:hover,
-.button-24:active {
+.delete-button:hover,
+.delete-button:active {
   background-color: initial;
   background-position: 0 0;
   color: #ff4742;
 }
 
-.button-24:active {
+.delete-button:active {
   opacity: 0.5;
 }

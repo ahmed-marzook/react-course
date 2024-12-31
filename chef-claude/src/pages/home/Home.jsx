@@ -38,12 +38,13 @@ function Home(props) {
       <div className="ingredient-list">
         <div>
           <h2>Ingredients on hand:</h2>
+          {ingredientList.length < 1 && <p>Insert your first ingrediant</p>}
           <ul>
             {ingredientList.map((value) => (
               <li key={value}>
                 {value}
                 <button
-                  className="delete-button button-24"
+                  className="delete-button"
                   onClick={handleDelete}
                   id={value}
                 >
