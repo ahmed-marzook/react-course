@@ -6,8 +6,23 @@ import padsData from "../pads";
 function App() {
   const [pads, setPads] = useState(padsData);
 
+  function handleClick(id) {
+    console.log(id);
+    setPads((prev) =>
+      prev.map((item) => {
+        return item.id === id ? { ...item, on: !item.on } : item;
+      })
+    );
+  }
+
   const buttonElements = pads.map((pad) => (
-    <Pad key={pad.id} color={pad.color} />
+    <Pad
+      key={pad.id}
+      color={pad.color}
+      onHandle={handleClick}
+      id={pad.id}
+      on={pad.on}
+    />
   ));
 
   return (
