@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import "./Home.css";
 import { useState } from "react";
+import GetRecipeComponent from "../../components/get-recipe/GetRecipeComponent";
+import IngredientList from "../../components/ingredient-list/IngredientList";
 
 function Home(props) {
   const [ingredientList, setingredientList] = useState([]);
-  const [recipeShown, setRecipeShown] = useState(true);
+  const [recipeShown, setRecipeShown] = useState(false);
 
   const addNewIngrediant = (formData) => {
     console.log(formData);
@@ -41,36 +43,12 @@ function Home(props) {
         </button>
       </form>
       <section>
-        <div className="ingredient-list">
-          <div>
-            <h2>Ingredients on hand:</h2>
-            {ingredientList.length < 1 && <p>Insert your first ingrediant.</p>}
-            <ul>
-              {ingredientList.map((value) => (
-                <li key={value}>
-                  {value}
-                  <button
-                    className="delete-button"
-                    onClick={handleDelete}
-                    id={value}
-                  >
-                    DELETE
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <IngredientList
+          ingredientList={ingredientList}
+          handleDelete={handleDelete}
+        />
         {ingredientList.length > 0 && (
-          <div className="get-recipe-container">
-            <div>
-              <h3>Ready for recipe?</h3>
-              <p>Generate a recipe from your list of ingrediants.</p>
-            </div>
-            <button onClick={getRecipe} className="get-recipe-button">
-              Get a recipe
-            </button>
-          </div>
+          <GetRecipeComponent onHandle={getRecipe} />
         )}
       </section>
       {recipeShown && (
