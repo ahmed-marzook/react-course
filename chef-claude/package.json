@@ -12,7 +12,8 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.33.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-markdown": "^8.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
