@@ -1,11 +1,13 @@
 .get-recipe-container {
-  background-color: #f0efeb;
-  border-radius: 9px;
-  padding: 28px 42px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
+  background-color: #f0efeb;
+  font-family: "Inter", serif;
+  border-radius: 9px;
+  padding: 28px 42px;
+  max-width: 516px;
+  margin: 0 auto;
 }
 
 .get-recipe-container p {

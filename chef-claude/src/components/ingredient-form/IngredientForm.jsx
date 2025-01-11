@@ -1,11 +1,10 @@
 import "./IngredientForm.css";
 
-import React from "react";
 import PropTypes from "prop-types";
 
 function IngredientForm(props) {
   return (
-    <form action={props.addNewIngrediant} className="add-ingredient-form">
+    <form action={props.submitForm} className="add-ingredient-form">
       <input
         type="text"
         name="ingredient"
@@ -20,6 +19,6 @@ function IngredientForm(props) {
   );
 }
 
-IngredientForm.propTypes = {};
+IngredientForm.propTypes = { submitForm: PropTypes.func.isRequired };
 
 export default IngredientForm;
