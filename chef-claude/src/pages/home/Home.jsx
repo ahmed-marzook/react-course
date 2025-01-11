@@ -5,13 +5,14 @@ import GetRecipeComponent from "../../components/get-recipe/GetRecipeComponent";
 import IngredientList from "../../components/ingredient-list/IngredientList";
 import IngredientForm from "../../components/ingredient-form/IngredientForm";
 import SuggestedRecipe from "../../components/suggested-recipe/SuggestedRecipe";
+import { getRecipeFromChefClaude } from "../../utility/ai";
 
 function Home(props) {
   const [ingredientList, setingredientList] = useState([]);
   const [recipeShown, setRecipeShown] = useState(false);
+  const [recipe, setRecipe] = useState("");
 
   const addNewIngrediant = (formData) => {
-    console.log(formData);
     const newingredient = formData.get("ingredient").trim();
     if (newingredient && !ingredientList.includes(newingredient)) {
       setingredientList([...ingredientList, newingredient]);
@@ -19,7 +20,6 @@ function Home(props) {
   };
 
   const handleDelete = (e) => {
-    console.log(e.target.id);
     let newList = ingredientList.filter(function (letter) {
       return letter !== e.target.id;
     });
@@ -28,6 +28,7 @@ function Home(props) {
 
   const getRecipe = () => {
     setRecipeShown((prev) => !prev);
+    setRecipe(getRecipeFromChefClaude(ingredientList));
   };
 
   return (
@@ -46,7 +47,7 @@ function Home(props) {
           <GetRecipeComponent onHandle={getRecipe} />
         )}
       </section>
-      <section>{recipeShown && <SuggestedRecipe />}</section>
+      <section>{recipeShown && <SuggestedRecipe recipe={recipe} />}</section>
     </main>
   );
 }
