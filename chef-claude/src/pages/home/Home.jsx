@@ -9,7 +9,6 @@ import { getRecipeFromChefClaude } from "../../utility/ai";
 
 function Home(props) {
   const [ingredientList, setingredientList] = useState([]);
-  const [recipeShown, setRecipeShown] = useState(false);
   const [recipe, setRecipe] = useState("");
 
   const addNewIngrediant = (formData) => {
@@ -26,10 +25,12 @@ function Home(props) {
     setingredientList(newList);
   };
 
-  const getRecipe = () => {
-    setRecipeShown((prev) => !prev);
-    setRecipe(getRecipeFromChefClaude(ingredientList));
-  };
+  async function getRecipe() {
+    const generatedRecipeMarkdown = await getRecipeFromChefClaude(
+      ingredientList
+    );
+    setRecipe(generatedRecipeMarkdown);
+  }
 
   return (
     <main>
@@ -47,7 +48,7 @@ function Home(props) {
           <GetRecipeComponent onHandle={getRecipe} />
         )}
       </section>
-      <section>{recipeShown && <SuggestedRecipe recipe={recipe} />}</section>
+      <section>{recipe && <SuggestedRecipe recipe={recipe} />}</section>
     </main>
   );
 }
