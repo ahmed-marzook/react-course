@@ -18,6 +18,7 @@ function Home(props) {
   }
 
   useEffect(() => {
+    console.log("fetched");
     fetch("https://api.imgflip.com/get_memes")
       .then((response) => {
         if (!response.ok) {
@@ -26,7 +27,7 @@ function Home(props) {
         return response.json();
       })
       .then((data) => {
-        setMemeList(data.data.memes);
+        setMemeList(data.data.memes.filter((meme) => meme.box_count < 3));
         console.log("Success:", data);
       })
       .catch((error) => {
@@ -35,14 +36,15 @@ function Home(props) {
   }, []);
 
   const getNewMemeImage = () => {
-    const newNumber = Math.floor(Math.random() * 101);
-    const newMemeImageUrl = memeList[newNumber].url;
+    const newMemeImageUrl =
+      memeList[Math.floor(Math.random() * memeList.length)].url;
     setMeme((prev) => ({
       ...prev,
       imageUrl: newMemeImageUrl,
     }));
   };
 
+  console.log("Rendered");
   return (
     <main>
       <div className="form">
