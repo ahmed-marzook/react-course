@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 function SuggestedRecipe(props) {
   console.log(props.recipe);
   return (
-    <div className="suggested-recipe-container">
+    <div className="suggested-recipe-container" aria-live="polite">
       <h2>Chef Claude Recommends:</h2>
       <ReactMarkdown>{props.recipe}</ReactMarkdown>
     </div>
