@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "./Home.css";
 import { useState } from "react";
 import GetRecipeComponent from "../../components/get-recipe/GetRecipeComponent";
@@ -6,10 +5,14 @@ import IngredientList from "../../components/ingredient-list/IngredientList";
 import IngredientForm from "../../components/ingredient-form/IngredientForm";
 import SuggestedRecipe from "../../components/suggested-recipe/SuggestedRecipe";
 import { getRecipeFromChefClaude } from "../../utility/ai";
+import { useRef } from "react";
+import { useEffect } from "react";
 
-function Home(props) {
+function Home() {
   const [ingredientList, setingredientList] = useState([]);
   const [recipe, setRecipe] = useState("");
+  const recipeSection = useRef(null);
+  console.log(recipeSection);
 
   const addNewIngrediant = (formData) => {
     const newingredient = formData.get("ingredient").trim();
@@ -32,6 +35,12 @@ function Home(props) {
     setRecipe(generatedRecipeMarkdown);
   }
 
+  useEffect(() => {
+    if (recipe && recipeSection.current !== null) {
+      recipeSection.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [recipe]);
+
   return (
     <main>
       <section>
@@ -45,14 +54,15 @@ function Home(props) {
       </section>
       <section>
         {ingredientList.length > 0 && (
-          <GetRecipeComponent onHandle={getRecipe} />
+          <GetRecipeComponent
+            recipeSectionRef={recipeSection}
+            onHandle={getRecipe}
+          />
         )}
       </section>
       <section>{recipe && <SuggestedRecipe recipe={recipe} />}</section>
     </main>
   );
 }
-
-Home.propTypes = {};
 
 export default Home;
