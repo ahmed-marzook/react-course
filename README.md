@@ -2,6 +2,8 @@
 
 Practice ReactJS projects
 
+    https://scrimba.com/learn-react-c0e
+
 # Update to REACT 19
 
 ```bash
